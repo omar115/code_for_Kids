@@ -17,7 +17,7 @@ root.geometry('500x500')
 
 root.title('Personal Translator')
 
-label1 = Label(root, text='Write your text here',fg='black',bg='white')
+label1 = Label(root, text='text',fg='black',bg='white')
 
 label2 = Label(root,text='Converted Results',fg='black',bg='white')
 
