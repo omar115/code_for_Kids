@@ -2,13 +2,19 @@
 #pip install googletrans==3.1.0a0
 
 from tkinter import *
-import googletrans
-from googletrans import Translator
+# import googletrans
+# from googletrans import Translator
+from google_trans_new import google_translator
 
+
+translator = google_translator()
+text = translator.translate('Hello', lang_tgt='bn')
+print(text)
+# print(translator.LANGUAGES)
 
 root = Tk()
 
-trans = Translator()
+# trans = Translator()
 
 
 root.configure(background='aqua')
@@ -26,14 +32,14 @@ label1.grid(row=0, column=1)
 text1 = Text(root, height=5, width = 25, font='arial')
 text2 = Text(root, height=5, width=25, font='arial')
 
-# print(googletrans.LANGUAGES)
+# print(google_trans.LANGUAGES)
 
 def convert():
     input_text = text1.get("1.0", "end")
     # print(input_text)
     textx = btn.cget('text')
     print('the text is ',textx)
-    out = trans.translate(input_text, dest=textx)
+    out = translator.translate(input_text, dest=textx)
     print(out.text)
     text2.insert('end', out.text)
 
@@ -61,17 +67,17 @@ def test(tt):
     # textx = btn3.cget('text')
     # print('the text is ',textx)
     
-    out = trans.translate(input_text, dest=tt)
-    print('translated text is ',out.text)
-    text2.insert('end', out.text)
+    out = translator.translate(input_text, lang_tgt=tt)
+    print('translated text is ',out)
+    text2.insert('end', out)
 
-btn = Button(root, text='arabic', bg='red', fg='black', command=lambda: test('arabic'))
+btn = Button(root, text='arabic', bg='red', fg='black', command=lambda: test('ar'))
 btn.grid(row=1, column=2, padx=10, pady=10)
 
-btn2x = Button(root, text='bengali', bg='red', fg='black', command=lambda: test('bengali'))
+btn2x = Button(root, text='bengali', bg='red', fg='black', command=lambda: test('bn'))
 btn2x.grid(row=1, column=3, padx=10, pady=10)
 
-btn3 = Button(root, text='gujarati', bg='red', fg='black', command=lambda: test('gujarati'))
+btn3 = Button(root, text='gujarati', bg='red', fg='black', command=lambda: test('en'))
 btn3.grid(row=1, column=4, padx=10, pady=10)
 
 text1.grid(row=1, column=1, padx=10, pady=10)
