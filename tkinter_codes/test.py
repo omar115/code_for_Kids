@@ -1,10 +1,10 @@
-import re
+import datetime
 
-x = '''20 Feb 2019
-11:41 am
-'''
-print(x)
+def validDate(ddate):
+    try:
+        datetime.datetime.strptime(ddate, '%d-%m-%Y')
+        return True
+    except ValueError:
+        return False
 
-yr = re.findall('\d*.?\d+', x)
-print(yr)
-
+print(validDate('09-12-2020'))
