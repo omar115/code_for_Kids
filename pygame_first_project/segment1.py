@@ -1,40 +1,28 @@
-import pygame
-pygame.init()
+import pygame   #import pygame library
+pygame.init()   #initialize all pygame modules
 
-win = pygame.display.set_mode((500,500))
-pygame.display.set_caption("First Game")
+#set up a drawing window
 
-x = 50
-y = 50
-width = 40
-height = 60
-vel = 5
+screen = pygame.display.set_mode([500, 500])
 
-run = True
+#run until the user asks to quit
+running = True
 
-while run:
-    pygame.time.delay(100)
-
+while running:
+    # Did the user click the window close button?
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
-
-    keys = pygame.key.get_pressed()
+            running = False
     
-    if keys[pygame.K_LEFT]:
-        x -= vel
+    # Fill the background with white
+    screen.fill((255, 255, 255))
 
-    if keys[pygame.K_RIGHT]:
-        x += vel
+    # Draw a solid blue circle in the center
+    pygame.draw.circle(screen, (0, 0, 255), (250, 250), 75)
 
-    if keys[pygame.K_UP]:
-        y -= vel
+    # Flip the display
+    pygame.display.flip()
 
-    if keys[pygame.K_DOWN]:
-        y += vel
-    
-    win.fill((0,0,0))  # Fills the screen with black
-    pygame.draw.rect(win, (255,0,0), (x, y, width, height))   
-    pygame.display.update() 
-    
+
+# Done! Time to quit.
 pygame.quit()

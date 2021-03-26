@@ -1,10 +1,3 @@
-import datetime
+my_range = range(1,16)
 
-def validDate(ddate):
-    try:
-        datetime.datetime.strptime(ddate, '%d-%m-%Y')
-        return True
-    except ValueError:
-        return False
-
-print(validDate('09-12-2020'))
+print(list(int(_*10) for _ in my_range))

@@ -5,35 +5,17 @@ win = pygame.display.set_mode((500,480))
 
 pygame.display.set_caption("First Game")
 
-walkRight = [pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R1.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R2.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R3.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R4.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R5.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R6.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R7.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R8.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R9.png')]
-
-walkLeft = [pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L1.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L2.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L3.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L4.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L5.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L6.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L7.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L8.png'), 
-pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L9.png')]
-
-bg = pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/bg.jpg')
-char = pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/standing.png')
+walkRight = [pygame.image.load('R1.png'), pygame.image.load('R2.png'), pygame.image.load('R3.png'), pygame.image.load('R4.png'), pygame.image.load('R5.png'), pygame.image.load('R6.png'), pygame.image.load('R7.png'), pygame.image.load('R8.png'), pygame.image.load('R9.png')]
+walkLeft = [pygame.image.load('L1.png'), pygame.image.load('L2.png'), pygame.image.load('L3.png'), pygame.image.load('L4.png'), pygame.image.load('L5.png'), pygame.image.load('L6.png'), pygame.image.load('L7.png'), pygame.image.load('L8.png'), pygame.image.load('L9.png')]
+bg = pygame.image.load('bg.jpg')
+char = pygame.image.load('standing.png')
 
 clock = pygame.time.Clock()
 
-# bulletSound = pygame.mixer.Sound('/home/akash/git_workspace/code_for_Kids/pygame_first_project/bullet.mp3')
-# hitSound = pygame.mixer.Sound('/home/akash/git_workspace/code_for_Kids/pygame_first_project/hit.mp3')
+bulletSound = pygame.mixer.Sound('bullet.wav')
+hitSound = pygame.mixer.Sound('hit.wav')
 
-music = pygame.mixer.music.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/music.mp3')
+music = pygame.mixer.music.load('music.mp3')
 pygame.mixer.music.play(-1)
 
 score = 0
@@ -107,28 +89,8 @@ class projectile(object):
 
 
 class enemy(object):
-    walkRight = [pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R1E.png'),
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R2E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R3E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R4E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R5E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R6E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R7E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R8E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R9E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R10E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/R11E.png')]
-    walkLeft = [pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L1E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L2E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L3E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L4E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L5E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L6E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L7E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L8E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L9E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L10E.png'), 
-    pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_first_project/L11E.png')]
+    walkRight = [pygame.image.load('R1E.png'), pygame.image.load('R2E.png'), pygame.image.load('R3E.png'), pygame.image.load('R4E.png'), pygame.image.load('R5E.png'), pygame.image.load('R6E.png'), pygame.image.load('R7E.png'), pygame.image.load('R8E.png'), pygame.image.load('R9E.png'), pygame.image.load('R10E.png'), pygame.image.load('R11E.png')]
+    walkLeft = [pygame.image.load('L1E.png'), pygame.image.load('L2E.png'), pygame.image.load('L3E.png'), pygame.image.load('L4E.png'), pygame.image.load('L5E.png'), pygame.image.load('L6E.png'), pygame.image.load('L7E.png'), pygame.image.load('L8E.png'), pygame.image.load('L9E.png'), pygame.image.load('L10E.png'), pygame.image.load('L11E.png')]
 
     def __init__(self, x, y, width, height, end):
         self.x = x

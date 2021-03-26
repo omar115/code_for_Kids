@@ -1,4 +1,5 @@
 import pygame
+from pygame.constants import KEYDOWN, K_ESCAPE
 pygame.init()
 
 win = pygame.display.set_mode((500,480))
@@ -73,6 +74,9 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+        elif event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                run = False
 
     keys = pygame.key.get_pressed()
     
@@ -91,19 +95,19 @@ while run:
         right = False
         walkCount = 0
         
-    if not(isJump):
-        if keys[pygame.K_SPACE]:
-            isJump = True
-            left = False
-            right = False
-            walkCount = 0
-    else:
-        if jumpCount >= -10:
-            y -= (jumpCount * abs(jumpCount)) * 0.5
-            jumpCount -= 1
-        else: 
-            jumpCount = 10
-            isJump = False
+    # if not(isJump):
+    #     if keys[pygame.K_SPACE]:
+    #         isJump = True
+    #         left = False
+    #         right = False
+    #         walkCount = 0
+    # else:
+    #     if jumpCount >= -10:
+    #         y -= (jumpCount * abs(jumpCount)) * 0.5
+    #         jumpCount -= 1
+    #     else: 
+    #         jumpCount = 10
+    #         isJump = False
 
     redrawGameWindow() 
     
