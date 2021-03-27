@@ -19,7 +19,7 @@ pygame.init()   #initialize the pygame modules
 #create window
 window = pygame.display.set_mode((500, 500))
 
-window.fill((237, 161, 213))
+window.fill((237, 161, 213))    #color the window
 
 #give a name of window
 pygame.display.set_caption("My First Game")
