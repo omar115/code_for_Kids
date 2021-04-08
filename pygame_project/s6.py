@@ -5,9 +5,9 @@ from pygame.locals import *
 import time
 
 class Snake:
-    def __init__(self, surface):
-        self.parent_screen = surface
-        self.block = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/block.jpg").convert()
+    def __init__(self, window):
+        self.window = window
+        self.snake = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/block.jpg").convert()
         self.x = 100
         self.y = 100
         self.direction = 'down'
@@ -38,23 +38,24 @@ class Snake:
 
 
     def draw(self):
-        self.parent_screen.fill((110, 110, 5))
+        self.window.fill((110, 110, 5))
 
-        self.parent_screen.blit(self.block, (self.x, self.y))
-        pygame.display.flip()
+        self.window.blit(self.snake, (self.x, self.y))
+        pygame.display.flip()   #update the current frame
 
 
 class Game:
+    
     def __init__(self):
-        pygame.init()
-        self.surface = pygame.display.set_mode((500, 500))
-        self.snake = Snake(self.surface)
+        pygame.init()   #initialize the pygame modules
+        self.window = pygame.display.set_mode((500, 500))
+        self.snake = Snake(self.window)
         self.snake.draw()
 
     def run(self):
         running = True
 
-        while running:
+        while running == True:
             for event in pygame.event.get():
                 if event.type == KEYDOWN:
                     if event.key == K_ESCAPE:
