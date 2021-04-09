@@ -9,21 +9,21 @@ import random
 SIZE = 40
 
 class Apple:
-    def __init__(self, parent_screen):
-        self.parent_screen = parent_screen
-        self.image = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/apple.jpg").convert()
+    def __init__(self, window):
+        self.window = window
+        self.apple = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/apple.jpg").convert()
         self.x = 120
         self.y = 120
 
     def draw(self):
-        self.parent_screen.blit(self.image, (self.x, self.y))
+        self.window.blit(self.apple, (self.x, self.y))
         pygame.display.flip()
 
 
 class Snake:
-    def __init__(self, parent_screen, length):
-        self.parent_screen = parent_screen
-        self.image = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/block.jpg").convert()
+    def __init__(self, window, length):
+        self.window = window
+        self.snake = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/block.jpg").convert()
         self.direction = 'down'
 
         self.length = length
@@ -61,20 +61,20 @@ class Snake:
         self.draw()
 
     def draw(self):
-        self.parent_screen.fill((110, 110, 5))
+        self.window.fill((110, 110, 5))
 
         for i in range(self.length):
-            self.parent_screen.blit(self.image, (self.x[i], self.y[i]))
+            self.window.blit(self.snake, (self.x[i], self.y[i]))
         pygame.display.flip()
 
 
 class Game:
     def __init__(self):
         pygame.init()
-        self.surface = pygame.display.set_mode((1000, 800))
-        self.snake = Snake(self.surface, 3)
+        self.window = pygame.display.set_mode((1000, 800))
+        self.snake = Snake(self.window, 3)
         self.snake.draw()
-        self.apple = Apple(self.surface)
+        self.apple = Apple(self.window)
         self.apple.draw()
 
 
