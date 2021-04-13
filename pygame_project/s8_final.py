@@ -1,31 +1,36 @@
-# Write logic for snake eating apple and display score
-
+# Convert block into a snake
+# Draw apple at random locations
+#note: convert() function optimize the image and make drawing faster
 import pygame
 from pygame.locals import *
 import time
 import random
 
+
 SIZE = 40
 
 class Apple:
-    def __init__(self, parent_screen):
-        self.parent_screen = parent_screen
-        self.image = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/apple.jpg").convert()
+    def __init__(self, window):
+        self.window = window    #common window/pygame screen
+        
+        self.apple = pygame.image.load(r"/home/akash/git_workspace/code_for_Kids/pygame_project/images/apple.jpg").convert()
         self.x = 120
         self.y = 120
 
     def draw(self):
-        self.parent_screen.blit(self.image, (self.x, self.y))
-        pygame.display.flip()
-
+        self.window.blit(self.apple, (self.x, self.y))  #set the character
+        pygame.display.flip()   #update the screen
+    
     def move(self):
-        self.x = random.randint(1,25)*SIZE
-        self.y = random.randint(1,20)*SIZE
+        self.x = random.randint(1,10) * 20
+        self.y = random.randint(1,10) * 20
+
+
 
 class Snake:
-    def __init__(self, parent_screen, length):
-        self.parent_screen = parent_screen
-        self.image = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/block.jpg").convert()
+    def __init__(self, window, length):
+        self.window = window    #pygame window
+        self.snake = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/block.jpg").convert()
         self.direction = 'down'
 
         self.length = length
@@ -63,46 +68,68 @@ class Snake:
         self.draw()
 
     def draw(self):
-        self.parent_screen.fill((110, 110, 5))
+        # self.window.fill((60, 58, 66))     #coloring the window
 
         for i in range(self.length):
-            self.parent_screen.blit(self.image, (self.x[i], self.y[i]))
+            self.window.blit(self.snake, (self.x[i], self.y[i]))
         pygame.display.flip()
-
-    def increase_length(self):
+    
+    def increase(self):
         self.length += 1
         self.x.append(-1)
         self.y.append(-1)
 
+
+
 class Game:
     def __init__(self):
         pygame.init()
-        self.surface = pygame.display.set_mode((1000, 800))
-        self.snake = Snake(self.surface, 2)
+        pygame.display.set_caption("Snake Game using Python")
+        
+        pygame.mixer.init()
+        self.play_background_music()
+        
+        self.window = pygame.display.set_mode((1000, 800))
+        self.snake = Snake(self.window, 1)
         self.snake.draw()
-        self.apple = Apple(self.surface)
+        self.apple = Apple(self.window)
         self.apple.draw()
 
     def is_collision(self, x1, y1, x2, y2):
-        if x1 >= x2 and x1 < x2 + SIZE:
+        if x1 >= x2 and x1 < x2+SIZE:
             if y1 >= y2 and y1 < y2 + SIZE:
                 return True
         return False
+    
+    def play_background_music(self):
+        pygame.mixer.music.load(r'/home/akash/git_workspace/code_for_Kids/pygame_project/sounds/bg_music_1.ogg')
+        pygame.mixer.music.play()
 
     def display_score(self):
-        font = pygame.font.SysFont('arial',30)
-        score = font.render(f"Score: {self.snake.length}",True,(200,200,200))
-        self.surface.blit(score,(850,10))
+        font = pygame.font.SysFont('arial', 30)
+        score = font.render(f"Score: {self.snake.length}", True, (237, 24, 17))
+        self.window.blit(score,(800,10))
+
+    def show_background(self):
+        bg = pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_project/images/bg_pic2.jpg')
+        self.window.blit(bg, (0,0))
 
     def play(self):
+        self.show_background()
         self.snake.walk()
         self.apple.draw()
         self.display_score()
         pygame.display.flip()
-
         if self.is_collision(self.snake.x[0], self.snake.y[0], self.apple.x, self.apple.y):
-            self.snake.increase_length()
+            print('Collision Detected')
+            loc = r'/home/akash/git_workspace/code_for_Kids/pygame_project/sounds/ding.ogg'
+            sound = pygame.mixer.Sound(loc)
+            # sound = pygame.mixer.music.load(loc)
+            pygame.mixer.Sound.play(sound)
+            # pygame.mixer.music.play(0)
+            # sound.play()
             self.apple.move()
+            self.snake.increase()
 
 
     def run(self):
@@ -132,7 +159,6 @@ class Game:
             self.play()
 
             time.sleep(.2)
-
 
 game = Game()
 game.run()
