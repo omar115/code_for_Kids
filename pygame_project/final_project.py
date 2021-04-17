@@ -28,9 +28,9 @@ class Apple:
 
 
 class Snake:
-    def __init__(self, window, length):
+    def __init__(self, window, length): #init a speacial function that will automically called when a object created
         self.window = window    #pygame window
-        self.snake = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/block.jpg").convert()
+        self.snake = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/block.jpg").convert() #load the image of snake
         self.direction = 'down'
 
         self.length = length
