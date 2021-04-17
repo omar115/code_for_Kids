@@ -22,8 +22,8 @@ class Apple:
         pygame.display.flip()   #update the screen
     
     def move(self):
-        self.x = random.randint(1,10) * 20
-        self.y = random.randint(1,10) * 20
+        self.x = random.randint(1,10) * 20  #move to a random position in X grid
+        self.y = random.randint(1,10) * 20  #move to a random position in Y grid
 
 
 
@@ -83,17 +83,18 @@ class Snake:
 
 class Game:
     def __init__(self):
-        pygame.init()
-        pygame.display.set_caption("Snake Game using Python")
-        
-        pygame.mixer.init()	#initialize the music module
-        self.play_background_music()	#call the function
+        pygame.init()   #initialize the modules
+        pygame.display.set_caption('Snake game using Python')
+        pygame.mixer.init() # initialize the music modules
+        self.play_background_music()    #call the music funtion to play music
         
         self.window = pygame.display.set_mode((1000, 800))
         self.snake = Snake(self.window, 1)
         self.snake.draw()
         self.apple = Apple(self.window)
         self.apple.draw()
+
+
 
     def is_collision(self, x1, y1, x2, y2):
         if x1 >= x2 and x1 < x2+SIZE:
@@ -104,14 +105,14 @@ class Game:
     def play_background_music(self):
         pygame.mixer.music.load(r'/home/akash/git_workspace/code_for_Kids/pygame_project/sounds/bg_music_1.ogg')
         pygame.mixer.music.play()
-
+    
     def display_score(self):
         font = pygame.font.SysFont('arial', 30)
         score = font.render(f"Score: {self.snake.length}", True, (237, 24, 17))
         self.window.blit(score,(800,10))
-
+    
     def show_background(self):
-        bg = pygame.image.load('/home/akash/git_workspace/code_for_Kids/pygame_project/images/bg_pic2.jpg')
+        bg = pygame.image.load(r'/home/akash/git_workspace/code_for_Kids/pygame_project/images/bg_pic2.jpg')
         self.window.blit(bg, (0,0))
 
     def play(self):
@@ -122,12 +123,9 @@ class Game:
         pygame.display.flip()
         if self.is_collision(self.snake.x[0], self.snake.y[0], self.apple.x, self.apple.y):
             print('Collision Detected')
-            loc = r'/home/akash/git_workspace/code_for_Kids/pygame_project/sounds/ding.ogg'
-            sound = pygame.mixer.Sound(loc)
-            # sound = pygame.mixer.music.load(loc)
+            sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/pygame_project/sounds/ding.ogg')
             pygame.mixer.Sound.play(sound)
-            # pygame.mixer.music.play(0)
-            # sound.play()
+
             self.apple.move()
             self.snake.increase()
 
