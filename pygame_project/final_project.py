@@ -88,7 +88,7 @@ class Game:
         pygame.mixer.init() # initialize the music modules
         self.play_background_music()    #call the music funtion to play music
         
-        self.window = pygame.display.set_mode((1000, 800))
+        self.window = pygame.display.set_mode((1000, 800))  #display pixel
         self.snake = Snake(self.window, 1)
         self.snake.draw()
         self.apple = Apple(self.window)
