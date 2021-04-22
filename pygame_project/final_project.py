@@ -13,9 +13,9 @@ class Apple:
     def __init__(self, window):
         self.window = window    #common window/pygame screen
         
-        self.apple = pygame.image.load(r"/home/akash/git_workspace/code_for_Kids/pygame_project/images/apple.jpg").convert()
-        self.x = 120
-        self.y = 120
+        self.apple = pygame.image.load(r"/home/akash/git_workspace/code_for_Kids/pygame_project/images/cherry.jpg").convert()
+        self.x = 300
+        self.y = 300
 
     def draw(self):
         self.window.blit(self.apple, (self.x, self.y))  #set the character
@@ -30,7 +30,7 @@ class Apple:
 class Snake:
     def __init__(self, window, length): #init a speacial function that will automically called when a object created
         self.window = window    #pygame window
-        self.snake = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/block.jpg").convert() #load the image of snake
+        self.snake = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/darkgray.jpg").convert() #load the image of snake
         self.direction = 'down'
 
         self.length = length
@@ -88,7 +88,7 @@ class Game:
         pygame.mixer.init() # initialize the music modules
         self.play_background_music()    #call the music funtion to play music
         
-        self.window = pygame.display.set_mode((1000, 800))  #display pixel
+        self.window = pygame.display.set_mode((700, 600))  #display pixel
         self.snake = Snake(self.window, 1)
         self.snake.draw()
         self.apple = Apple(self.window)
@@ -103,16 +103,16 @@ class Game:
         return False
     
     def play_background_music(self):
-        pygame.mixer.music.load(r'/home/akash/git_workspace/code_for_Kids/pygame_project/sounds/bg_music_1.ogg')
+        pygame.mixer.music.load(r'/home/akash/git_workspace/code_for_Kids/pygame_project/sounds/bg_music_2.ogg')
         pygame.mixer.music.play()
     
     def display_score(self):
         font = pygame.font.SysFont('arial', 30)
-        score = font.render(f"Score: {self.snake.length}", True, (237, 24, 17))
-        self.window.blit(score,(800,10))
+        score = font.render(f"Score: {self.snake.length}", True, (3, 2, 2))
+        self.window.blit(score,(500,10))
     
     def show_background(self):
-        bg = pygame.image.load(r'/home/akash/git_workspace/code_for_Kids/pygame_project/images/bg_pic2.jpg')
+        bg = pygame.image.load(r'/home/akash/git_workspace/code_for_Kids/pygame_project/images/grass.jpg').convert()
         self.window.blit(bg, (0,0))
 
     def play(self):
