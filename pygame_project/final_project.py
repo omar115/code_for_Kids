@@ -13,7 +13,7 @@ class Apple:
     def __init__(self, window):
         self.window = window    #common window/pygame screen
         
-        self.apple = pygame.image.load(r"/home/akash/git_workspace/code_for_Kids/pygame_project/images/cherry.jpg").convert()
+        self.apple = pygame.image.load(r"/home/akash/git_workspace/code_for_Kids/pygame_project/images/r2.png").convert()
         self.x = 300
         self.y = 300
 
@@ -25,12 +25,27 @@ class Apple:
         self.x = random.randint(1,10) * 20  #move to a random position in X grid
         self.y = random.randint(1,10) * 20  #move to a random position in Y grid
 
+class Cherry:
+    def __init__(self, window):
+        self.window = window    #common window/pygame screen
+        
+        self.apple = pygame.image.load(r"/home/akash/git_workspace/code_for_Kids/pygame_project/images/cherry2.png").convert()
+        self.x = 100
+        self.y = 200
+
+    def draw(self):
+        self.window.blit(self.apple, (self.x, self.y))  #set the character
+        pygame.display.flip()   #update the screen
+    
+    def move(self):
+        self.x = random.randint(1,100) * 5  #move to a random position in X grid
+        self.y = random.randint(1,100) * 5  #move to a random position in Y grid
 
 
 class Snake:
     def __init__(self, window, length): #init a speacial function that will automically called when a object created
         self.window = window    #pygame window
-        self.snake = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/darkgray.jpg").convert() #load the image of snake
+        self.snake = pygame.image.load("/home/akash/git_workspace/code_for_Kids/pygame_project/images/box.png").convert() #load the image of snake
         self.direction = 'down'
 
         self.length = length
@@ -93,13 +108,29 @@ class Game:
         self.snake.draw()
         self.apple = Apple(self.window)
         self.apple.draw()
+        self.cherry = Cherry(self.window)
+        self.cherry.draw()
 
 
 
-    def is_collision(self, x1, y1, x2, y2):
+    def is_collision(self, x1, y1, x2, y2, x3, y3):
         if x1 >= x2 and x1 < x2+SIZE:
             if y1 >= y2 and y1 < y2 + SIZE:
                 return True
+        
+        if x1 >= x3 and x1 < x3+SIZE:
+            if y1 >= y3 and y1 < y3 + SIZE:
+                return True
+
+        return False
+    
+    def is_collision2(self, x1, y1, x2, y2):
+        if x1 >= x2 and x1 < x2+SIZE:
+            if y1 >= y2 and y1 < y2 + SIZE:
+                return True
+        
+        
+
         return False
     
     def play_background_music(self):
@@ -119,15 +150,39 @@ class Game:
         self.show_background()
         self.snake.walk()
         self.apple.draw()
+        self.cherry.draw()
+        
         self.display_score()
         pygame.display.flip()
-        if self.is_collision(self.snake.x[0], self.snake.y[0], self.apple.x, self.apple.y):
+        if self.is_collision(self.snake.x[0], self.snake.y[0], self.apple.x, self.apple.y, self.cherry.x, self.cherry.y):
             print('Collision Detected')
+
             sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/pygame_project/sounds/ding.ogg')
             pygame.mixer.Sound.play(sound)
-
+            
             self.apple.move()
+            self.cherry.move()
             self.snake.increase()
+        
+        for i in range(3, self.snake.length):
+            if self.is_collision2(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
+                print('Game Over')
+                pygame.mixer.music.load(r'/home/akash/git_workspace/code_for_Kids/pygame_project/sounds/bg_music_2.ogg')
+                pygame.mixer.music.stop()
+        
+                bg = pygame.image.load(r'/home/akash/git_workspace/code_for_Kids/pygame_project/images/game_over.png').convert()
+                self.window.blit(bg, (0,0))
+                pygame.display.flip()
+                
+                font = pygame.font.SysFont('arial', 50)
+                score = font.render(f"Score: {self.snake.length}", True, (242, 239, 237))
+                self.window.blit(score,(500,10))
+                pygame.display.flip()
+
+                sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/pygame_project/sounds/game_over.ogg')
+                pygame.mixer.Sound.play(sound)
+                time.sleep(5)
+                exit(0)
 
 
     def run(self):
