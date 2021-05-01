@@ -164,6 +164,8 @@ class Game:
             self.cherry.move()
             self.snake.increase()
         
+        
+        
         for i in range(3, self.snake.length):
             if self.is_collision2(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
                 print('Game Over')
