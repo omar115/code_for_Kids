@@ -14,13 +14,15 @@ class Apple:
         self.window = window    #common window/pygame screen
         
         self.apple = pygame.image.load(r"/home/akash/git_workspace/code_for_Kids/pygame_project/images/r2.png").convert()
-        self.x = 300
-        self.y = 300
+        self.x = 300 
+        self.y = 300 
 
+    # it will draw the character on window
     def draw(self):
         self.window.blit(self.apple, (self.x, self.y))  #set the character
         pygame.display.flip()   #update the screen
     
+    # it will move the character on screen
     def move(self):
         self.x = random.randint(1,10) * 20  #move to a random position in X grid
         self.y = random.randint(1,10) * 20  #move to a random position in Y grid
@@ -29,7 +31,7 @@ class Cherry:
     def __init__(self, window):
         self.window = window    #common window/pygame screen
         
-        self.apple = pygame.image.load(r"/home/akash/git_workspace/code_for_Kids/pygame_project/images/cherry2.png").convert()
+        self.cherry = pygame.image.load(r"/home/akash/git_workspace/code_for_Kids/pygame_project/images/cherry2.png").convert()
         self.x = 100
         self.y = 200
 
@@ -94,7 +96,24 @@ class Snake:
         self.x.append(-1)
         self.y.append(-1)
 
+class Diamond:
+    def __init__(self, window):
+        self.window = window    #common window/pygame screen
+        
+        self.diamon = pygame.image.load(r"/home/akash/git_workspace/code_for_Kids/pygame_project/images/cherry2.png").convert()
+        self.x = 150
+        self.y = 250
 
+    def draw(self):
+        self.window.blit(self.apple, (self.x, self.y))  #set the character
+        pygame.display.flip()   #update the screen
+    
+    def move(self):
+        self.x = random.randint(1,90) * 5  #move to a random position in X grid
+        self.y = random.randint(1,90) * 5  #move to a random position in Y grid
+    
+    def game_over(self):
+        exit(0)
 
 class Game:
     def __init__(self):
@@ -104,13 +123,18 @@ class Game:
         self.play_background_music()    #call the music funtion to play music
         
         self.window = pygame.display.set_mode((700, 600))  #display pixel
+        
         self.snake = Snake(self.window, 1)
         self.snake.draw()
+        
         self.apple = Apple(self.window)
         self.apple.draw()
+        
         self.cherry = Cherry(self.window)
         self.cherry.draw()
 
+        self.diamond = Diamond(self.window)
+        self.diamond.draw()
 
 
     def is_collision(self, x1, y1, x2, y2, x3, y3):
@@ -133,6 +157,9 @@ class Game:
 
         return False
     
+    def is_collision3():
+        print('Do the task')
+    
     def play_background_music(self):
         pygame.mixer.music.load(r'/home/akash/git_workspace/code_for_Kids/pygame_project/sounds/bg_music_2.ogg')
         pygame.mixer.music.play()
@@ -151,9 +178,11 @@ class Game:
         self.snake.walk()
         self.apple.draw()
         self.cherry.draw()
+        self.diamond.draw()
         
         self.display_score()
         pygame.display.flip()
+        # if snake touch any of these then the character will move and snake become large
         if self.is_collision(self.snake.x[0], self.snake.y[0], self.apple.x, self.apple.y, self.cherry.x, self.cherry.y):
             print('Collision Detected')
 
@@ -162,7 +191,10 @@ class Game:
             
             self.apple.move()
             self.cherry.move()
+            self.diamond.move()
             self.snake.increase()
+        
+        
         
         
         
@@ -184,7 +216,7 @@ class Game:
                 sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/pygame_project/sounds/game_over.ogg')
                 pygame.mixer.Sound.play(sound)
                 time.sleep(5)
-                exit(0)
+                exit(0)     # it will close your window
 
 
     def run(self):
