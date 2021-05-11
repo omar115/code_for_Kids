@@ -197,15 +197,15 @@ class Game:
             self.apple.move()
             self.snake.increase()
 
-        # if self.is_collision(self.snake.x[0], self.snake.y[0], self.dec.x, self.dec.y):
-        #     print('Collision Detected: Decreaser')
+        if self.is_collision(self.snake.x[0], self.snake.y[0], self.dec.x, self.dec.y):
+            print('Collision Detected: Decreaser')
 
-        #     # sound = pygame.mixer.Sound(r'C:\Users\Mahmud Reza\Downloads\lose sound 1_0.wav')
-        #     sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/Pygame files/lose sound 1_0.wav')
-        #     pygame.mixer.Sound.play(sound)
+            # sound = pygame.mixer.Sound(r'C:\Users\Mahmud Reza\Downloads\lose sound 1_0.wav')
+            sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/Pygame files/lose sound 1_0.wav')
+            pygame.mixer.Sound.play(sound)
             
-        #     self.dec.move()
-        #     # self.snake.decrease()
+            self.dec.move()
+            self.snake.decrease()
         #     font = pygame.font.SysFont('lucida handwriting', 30)
         #     score = font.render(f"Score: {self.snake.length}", True, (224,255,255))
         #     self.window.blit(score,(800,70))
@@ -244,20 +244,7 @@ class Game:
             # # time.sleep(5)
             # exit(0)
 
-        # for i in range(1, self.snake.length):
-        # if self.is_collision(self.snake.x[0], self.snake.y[0], self.dec.x, self.dec.y):
-        #     print('Collision Detected: Decreaser')
-
-        #     # sound = pygame.mixer.Sound(r'C:\Users\Mahmud Reza\Downloads\lose sound 1_0.wav')
-        #     sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/Pygame files/lose sound 1_0.wav')
-        #     pygame.mixer.Sound.play(sound)
-            
-        #     self.dec.move()
-        #     # self.snake.decrease()
-        #     font = pygame.font.SysFont('lucida handwriting', 50)
-        #     score = font.render(f"Score: {self.snake.length - 1}", True, (225,255,255))
-        #     self.window.blit(score,(800,70))
-        #     pygame.display.flip()
+        
 
         for i in range(3, self.snake.length):
             if self.is_collision2(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
@@ -271,20 +258,6 @@ class Game:
                 self.window.blit(bg, (0,0))
                 pygame.display.flip()
                 
-            if self.is_collision(self.snake.x[0], self.snake.y[0], self.dec.x, self.dec.y):
-                print('Collision Detected: Decreaser')
-
-                # sound = pygame.mixer.Sound(r'C:\Users\Mahmud Reza\Downloads\lose sound 1_0.wav')
-                sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/Pygame files/lose sound 1_0.wav')
-                pygame.mixer.Sound.play(sound)
-                
-                self.dec.move()
-                # self.snake.decrease()
-                font = pygame.font.SysFont('lucida handwriting', 50)
-                score = font.render(f"Score: {self.snake.length - 1}", True, (225,255,255))
-                self.window.blit(score,(800,70))
-                pygame.display.flip()
-            else:
                 font = pygame.font.SysFont('lucida handwriting', 30)
                 score = font.render(f"Score: {self.snake.length}", True, (224,255,255))
                 self.window.blit(score,(800,70))
