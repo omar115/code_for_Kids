@@ -28,44 +28,44 @@ class Apple:
 
 class Dec:
     def __init__(self, window):
-        self.window = window    #common window/pygame screen
+        self.window = window    # common window/pygame screen
         
         # self.dec = pygame.image.load(r"C:\Users\Mahmud Reza\Documents\download.jpg").convert()
         self.dec = pygame.image.load(r"/home/akash/git_workspace/code_for_Kids/Pygame files/download.jpg").convert()
-        self.x = 100
-        self.y = 200
+        self.x = 400
+        self.y = 450
 
     def draw(self):
-        self.window.blit(self.dec, (self.x, self.y))  #set the character
-        pygame.display.flip()   #update the screen
+        self.window.blit(self.dec, (self.x, self.y))  # set the character
+        pygame.display.flip()   # update the screen
     
     def move(self):
-        self.x = random.randint(1,10) * 50
-        self.y = random.randint(1,10) * 50
+        self.x = random.randint(10,20) * 50
+        self.y = random.randint(10,20) * 50
 
 
 class Cherry:
     def __init__(self, window):
-        self.window = window    #common window/pygame screen
+        self.window = window    # common window/pygame screen
         
         # self.apple = pygame.image.load(r"C:\Users\Mahmud Reza\Documents\Python characters pyagme\Bomb.jpg").convert()
         self.apple = pygame.image.load(r"/home/akash/git_workspace/code_for_Kids/Pygame files/Bomb.jpg").convert()
-        self.x = 100
-        self.y = 200
+        self.x = 500
+        self.y = 600
 
     def draw(self):
-        self.window.blit(self.apple, (self.x, self.y))  #set the character
-        pygame.display.flip()   #update the screen
+        self.window.blit(self.apple, (self.x, self.y))  # set the character
+        pygame.display.flip()   # update the screen
     
     def move(self):
-        self.x = random.randint(1,10) * 50
-        self.y = random.randint(1,10) * 50
+        self.x = random.randint(50,100) * 5
+        self.y = random.randint(50,100) * 5
 
 
 
 class Snake:
-    def __init__(self, window, length): #init a speacial function that will automically called when a object created
-        self.window = window    #pygame window
+    def __init__(self, window, length): # init a speacial function that will automically called when a object created
+        self.window = window    # pygame window
         # self.snake = pygame.image.load(r"C:\Users\Mahmud Reza\Documents\Python characters pyagme\1.png").convert() #load the image of snake
         self.snake = pygame.image.load(r"/home/akash/git_workspace/code_for_Kids/Pygame files/1.png").convert()
         self.direction = 'down'
@@ -115,24 +115,21 @@ class Snake:
         self.draw()
 
     def draw(self):
-        # self.window.fill((60, 58, 66))     #coloring the window
+        # self.window.fill((60, 58, 66))     # coloring the window
 
         for i in range(self.length):
             self.window.blit(self.snake, (self.x[i], self.y[i]))
         pygame.display.flip()
     
-    
-
-
 
 class Game:
     def __init__(self):
-        pygame.init()   #initialize the modules
+        pygame.init()   # initialize the modules
         pygame.display.set_caption('Snake!')
         pygame.mixer.init() # initialize the music modules
-        self.play_background_music()    #call the music funtion to play music
+        self.play_background_music()    # call the music funtion to play music
         
-        self.window = pygame.display.set_mode((1000,800))  #display pixel
+        self.window = pygame.display.set_mode((1000,800))  # display pixel
         self.snake = Snake(self.window, 1)
         self.snake.draw()
         self.apple = Apple(self.window)
@@ -223,7 +220,8 @@ class Game:
             pygame.display.flip()
                 
             font = pygame.font.SysFont('lucida handwriting', 30)
-            score = font.render(f"Score: {self.snake.length}", True, (224,255,255))
+            print(self.snake.length)
+            score = font.render(f"Score: {(self.snake.length) - 1}", True, (224,255,255))
             self.window.blit(score,(800,70))
             pygame.display.flip()
 
