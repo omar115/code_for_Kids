@@ -166,7 +166,8 @@ class Game:
     
     def play_background_music(self):
         # pygame.mixer.music.load(r'C:\Users\Mahmud Reza\Downloads\song.mp3')
-        pygame.mixer.music.load(r'C:\Users\Mahmud Reza\Downloads\song.mp3')
+        # pygame.mixer.music.load(r'C:\Users\Mahmud Reza\Downloads\song.mp3')
+        pygame.mixer.music.load(r'/home/akash/git_workspace/code_for_Kids/Pygame files/song.ogg')
         pygame.mixer.music.play()
     
     def display_score(self):
@@ -193,7 +194,7 @@ class Game:
             print('Collision Detected: Apple')
 
             # sound = pygame.mixer.Sound(r'C:\Users\Mahmud Reza\Downloads\Chewing-popcorn-single-crunch-A-www.fesliyanstudios.com.mp3')
-            sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/Pygame files/Chewing-popcorn-single-crunch-A-www.fesliyanstudios.com.mp3')
+            sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/Pygame files/s1.ogg')
             pygame.mixer.Sound.play(sound)
             
             self.apple.move()
@@ -202,7 +203,8 @@ class Game:
         if self.is_collision(self.snake.x[0], self.snake.y[0], self.dec.x, self.dec.y):
             print('Collision Detected: Decreaser')
 
-            sound = pygame.mixer.Sound(r'C:\Users\Mahmud Reza\Downloads\lose sound 1_0.wav')
+            # sound = pygame.mixer.Sound(r'C:\Users\Mahmud Reza\Downloads\lose sound 1_0.wav')
+            sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/Pygame files/lose sound 1_0.wav')
             pygame.mixer.Sound.play(sound)
             
             self.dec.move()
@@ -211,10 +213,12 @@ class Game:
         if self.is_collision(self.snake.x[0], self.snake.y[0], self.cherry.x, self.cherry.y):
             print('Collision Detected: Bomb')
 
-            pygame.mixer.music.load(r'C:\Users\Mahmud Reza\Downloads\song.mp3')
+            # pygame.mixer.music.load(r'C:\Users\Mahmud Reza\Downloads\song.mp3')
+            pygame.mixer.music.load(r'/home/akash/git_workspace/code_for_Kids/Pygame files/song.ogg')
             pygame.mixer.music.stop()
         
-            bg = pygame.image.load(r'C:\Users\Mahmud Reza\Documents\Python characters pyagme\Game Over.jpg').convert()
+            # bg = pygame.image.load(r'C:\Users\Mahmud Reza\Documents\Python characters pyagme\Game Over.jpg').convert()
+            bg = pygame.image.load(r'/home/akash/git_workspace/code_for_Kids/Pygame files/Game Over.jpg').convert()
             self.window.blit(bg, (0,0))
             pygame.display.flip()
                 
@@ -224,7 +228,7 @@ class Game:
             pygame.display.flip()
 
             # sound = pygame.mixer.Sound(r'C:\Users\Mahmud Reza\Documents\Python characters pyagme\Game_Over.mp3')
-            sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/Pygame files/Game_Over.mp3')
+            sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/Pygame files/Game_Over.ogg')
             pygame.mixer.Sound.play(sound)
             time.sleep(5)
             exit(0)
@@ -240,10 +244,12 @@ class Game:
         for i in range(3, self.snake.length):
             if self.is_collision2(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
                 print('Game Over')
-                pygame.mixer.music.load(r'C:\Users\Mahmud Reza\Downloads\song.mp3')
+                # pygame.mixer.music.load(r'C:\Users\Mahmud Reza\Downloads\song.mp3')
+                pygame.mixer.music.load(r'/home/akash/git_workspace/code_for_Kids/Pygame files/song.ogg')
                 pygame.mixer.music.stop()
         
-                bg = pygame.image.load(r'C:\Users\Mahmud Reza\Documents\Python characters pyagme\Game Over.jpg').convert()
+                # bg = pygame.image.load(r'C:\Users\Mahmud Reza\Documents\Python characters pyagme\Game Over.jpg').convert()
+                bg = pygame.image.load(r'/home/akash/git_workspace/code_for_Kids/Pygame files/Game Over.jpg').convert()
                 self.window.blit(bg, (0,0))
                 pygame.display.flip()
                 
@@ -252,7 +258,8 @@ class Game:
                 self.window.blit(score,(800,70))
                 pygame.display.flip()
 
-                sound = pygame.mixer.Sound(r'C:\Users\Mahmud Reza\Documents\Python characters pyagme\Game_Over.mp3')
+                # sound = pygame.mixer.Sound(r'C:\Users\Mahmud Reza\Documents\Python characters pyagme\Game_Over.mp3')
+                sound = pygame.mixer.Sound(r'/home/akash/git_workspace/code_for_Kids/Pygame files/Game_Over.ogg')
                 pygame.mixer.Sound.play(sound)
                 time.sleep(5)
                 exit(0)
