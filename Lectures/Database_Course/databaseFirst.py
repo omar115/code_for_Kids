@@ -5,10 +5,9 @@ def create_connection(path):
     connection = None
     try:
         connection = sqlite3.connect(path)
-        print('Connection to Sqlite3 DB successful')
-    except Error as e:
-        print(f"The error is '{e}' occured")
+        print('The database is connected')
+    except Error:
+        print('The database is not connected')
+        # print(e)
 
-
-
-connect =  create_connection('/home/akash/git_workspace/code_for_Kids/Lectures/Database_Course/data.sqlite')
+connect =  create_connection('/home/akash/git_workspace/code_for_Kids/Lectures/Database_Course/library_data')
