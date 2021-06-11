@@ -1,3 +1,7 @@
-my_range = range(1,16)
+def fun(a):
+    print(a)
+    def fun2(a):
+        print(a)
+    fun2(a)
 
-print(list(int(_*10) for _ in my_range))
+fun(5)
