@@ -7,6 +7,9 @@ database_name = '/home/akash/git_workspace/code_for_Kids/classWork/my_database.d
 
 c = sqlite3.connect(database_name)
 
+
+
+
 cur = c.cursor()    # similar to pygame, it has many buit in methods/functions
 
 # sTEP 1: cREATE A tABLE
