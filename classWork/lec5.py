@@ -9,9 +9,14 @@ c = sqlite3.connect(database_name)
 
 cur = c.cursor()    # similar to pygame, it has many buit in methods/functions
 
+# CREATE == INSERT
+# RETRIEVE == FETCHALL
+# UPDATE == UPDATE
+# DELETE == DELETE
 
-cur.execute(""" DELETE from customers WHERE first_name='Mahmud'
-""")
+# update the value of database
+
+cur.execute(" DELETE from customers WHERE last_name='Hossain' ")
 
 c.commit()
 

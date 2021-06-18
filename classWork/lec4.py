@@ -9,11 +9,9 @@ c = sqlite3.connect(database_name)
 
 cur = c.cursor()    # similar to pygame, it has many buit in methods/functions
 
+# update the value of database
 
-cur.execute(""" UPDATE customers SET first_name='Leenat'
-                WHERE last_name = 'Omar'
-
-""")
+cur.execute(" UPDATE customers SET first_name='Alauddin' where last_name='Bill' ")
 
 c.commit()
 
