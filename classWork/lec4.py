@@ -11,7 +11,7 @@ cur = c.cursor()    # similar to pygame, it has many buit in methods/functions
 
 # update the value of database
 
-cur.execute(" UPDATE customers SET first_name='Alauddin' where last_name='Bill' ")
+cur.execute(" UPDATE customers SET first_name='Billy' where last_name='None' ")
 
 c.commit()
 
