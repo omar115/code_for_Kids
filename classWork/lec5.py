@@ -16,7 +16,7 @@ cur = c.cursor()    # similar to pygame, it has many buit in methods/functions
 
 # update the value of database
 
-cur.execute(" DELETE from customers WHERE last_name='Hossain' ")
+cur.execute(" DELETE from customers WHERE email='LA@gmail.com' ")
 
 c.commit()
 

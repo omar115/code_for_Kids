@@ -14,7 +14,7 @@ cur = c.cursor()    # similar to pygame, it has many buit in methods/functions
 
 # sTEP 1: cREATE A tABLE
 
-cur.execute("INSERT INTO customers VALUES ('Bill',NULL,'bill@gmail.com')")
+cur.execute("INSERT INTO customers VALUES (NULL,NULL,'LA@gmail.com')")
 
 
 # Sqlite3 data types
