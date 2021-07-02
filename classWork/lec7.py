@@ -1,11 +1,18 @@
 # String Manipulation
 
-a = 'The Old Man and The Sea, Famous book, NULL'
-b = a.split(',')
-# print(b)
-book_name = b[0]
-description = b[1]
-date = b[2]
+a = 'Dracula, BRAM Stoker, Horror'
+
+li = a.split(',')
+
+print(li)
+
+book_name = li[0]
+
+author_name = li[1]
+
+genre = li[2]
+
 print(book_name)
-print(description)
-print(date)
+print(author_name)
+print(genre)
+
