@@ -36,7 +36,7 @@ def add():
     date = output_text[2]
 
     '''
-    placeholder is just a contained you created before inserting a value into it.
+    placeholder is just a container you created before inserting a value into it.
     it helps us during the operation of sqlite database. using question mark (?) you can create
     a placeholder into it.
     '''
