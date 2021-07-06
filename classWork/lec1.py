@@ -1,3 +1,4 @@
+# to import the sqlite library
 import sqlite3
 
 # where you want to save the database
