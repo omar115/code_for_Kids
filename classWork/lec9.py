@@ -55,6 +55,33 @@ def add():
                             # and can show in terminal using print function
 
 
+# function add where we will get text from the text box and apply string manipulation
+def delete():
+    input_text = txt2.get('1.0','end')
+    
+        #slice the string given from text box 1
+    
+    book_name = input_text
+
+    '''
+    placeholder is just a container you created before inserting a value into it.
+    it helps us during the operation of sqlite database. using question mark (?) you can create
+    a placeholder into it.
+    '''
+
+    script = 'DELETE from customers WHERE email=(?)' # create a placeholder
+
+    cur.execute(script, (book_name))     # adding value to the database
+
+    c.commit()  # saving
+
+    cur.execute('SELECT * FROM book')   # select all data from the database
+
+    c.commit()  # saving
+
+    print(cur.fetchall())   # using fetchall() you can pop out all the data from the database 
+                            # and can show in terminal using print function
+
 
 # text 1 where user will write the book name, author name and description
 txt1 = Text(root, height=5, width=25, font='arial')
@@ -62,6 +89,14 @@ txt1.grid(row=0, column=0)
 
 # button to insert data into the database
 btn = Button(root, text='Add the Book', bd=5, command=add)
+btn.grid(row=1, column=0)
+
+# text 1 where user will write the book name, author name and description
+txt2 = Text(root, height=5, width=25, font='arial')
+txt2.grid(row=0, column=0)
+
+# button to insert data into the database
+btn = Button(root, text='Delete the Book', bd=5, command=delete)
 btn.grid(row=1, column=0)
 
 
