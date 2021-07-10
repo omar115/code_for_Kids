@@ -5,7 +5,7 @@ root = Tk()
 
 root.geometry('600x600')
 
-database_name = '/home/akash/git_workspace/code_for_Kids/classWork/my_database.db'      # write your location with database name
+database_name = '/home/omar/git_workspace/code_for_Kids/classWork/my_database.db'      # write your location with database name
 
 c = sqlite3.connect(database_name)      # connect with the database
 
@@ -59,9 +59,8 @@ def add():
 def delete():
     input_text = txt2.get('1.0','end')
     
-        #slice the string given from text box 1
-    
     book_name = input_text
+    print(book_name)
 
     '''
     placeholder is just a container you created before inserting a value into it.
@@ -69,15 +68,15 @@ def delete():
     a placeholder into it.
     '''
 
-    script = 'DELETE from customers WHERE email=(?)' # create a placeholder
+    script = 'DELETE from book WHERE book_name = ?' # create a placeholder
 
-    cur.execute(script, (book_name))     # adding value to the database
+    cur.execute(script, (book_name.strip(),))     # adding value to the database
 
     c.commit()  # saving
 
     cur.execute('SELECT * FROM book')   # select all data from the database
 
-    c.commit()  # saving
+    # c.commit()  # saving
 
     print(cur.fetchall())   # using fetchall() you can pop out all the data from the database 
                             # and can show in terminal using print function
@@ -93,11 +92,11 @@ btn.grid(row=1, column=0)
 
 # text 1 where user will write the book name, author name and description
 txt2 = Text(root, height=5, width=25, font='arial')
-txt2.grid(row=0, column=0)
+txt2.grid(row=2, column=0)
 
 # button to insert data into the database
 btn = Button(root, text='Delete the Book', bd=5, command=delete)
-btn.grid(row=1, column=0)
+btn.grid(row=3, column=0)
 
 
 root.mainloop()
