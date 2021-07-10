@@ -1,11 +1,10 @@
-'''
-Love python by using coloring your fav terminal
+from tkinter import *
 
-'''
+root = Tk()
+# set window size
+root.geometry("400x200")
 
+#set window color
+root.configure(bg='blue')
 
-from colorama import Fore, Back, Style
-
-print(Fore.RED, 'This is a RED Text')
-print(Fore.GREEN, 'and with a green background')
-print(Style.DIM + 'and in dim text')
+root.mainloop()
