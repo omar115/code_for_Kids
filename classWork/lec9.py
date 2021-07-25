@@ -86,7 +86,7 @@ def delete():
 
 def update():
     input_text = txt3.get('1.0','end')
-    print(input_text)
+    print('------- ',input_text)
     output_text = input_text.split(',')     #slice the string given from text box 1
     print(output_text)
     # assign the output into different variables
