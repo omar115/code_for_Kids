@@ -86,12 +86,14 @@ def delete():
 
 def update():
     input_text = txt3.get('1.0','end')
+    input_text = input_text.strip()
     print('------- ',input_text)
     output_text = input_text.split(',')     #slice the string given from text box 1
     print(output_text)
     # assign the output into different variables
-    book_name = output_text[0]
-    date = output_text[1]
+    
+    date = output_text[0]
+    book_name = output_text[1]
 
     script = 'UPDATE book SET date = (?) where book_name = (?)' # create a placeholder
 
@@ -144,7 +146,7 @@ btn3.grid(row=5, column=0, padx=10, pady=10)
 
 
 btn4 = Button(root, text='Show Book List', bd=5, command=show_all)
-btn4.grid(row=7, column=0, padx=20, pady=20)
+btn4.grid(row=6, column=0, padx=20, pady=20)
 
 
 

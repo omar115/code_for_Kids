@@ -8,8 +8,8 @@ root.geometry('600x600')
 
 
 
-# libdb = r'C:\Users\asuer\Documents\DbPython\libdb.db'
-libdb = r'/home/omar/git_workspace/code_for_Kids/classWork/leenat/libdb.db'      
+libdb = r'C:\Users\asuer\Documents\DbPython\libdb.db'
+# libdb = r'/home/omar/git_workspace/code_for_Kids/classWork/leenat/libdb.db'      
 
 c = sqlite3.connect(libdb)
 
@@ -68,6 +68,7 @@ def delete():
 
 def update():
     input_text = txt3.get('1.0','end')
+    input_text = input_text.strip()
     # print(input_text)
     output_text = input_text.split(',')
     # print(output_text)
