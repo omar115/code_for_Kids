@@ -5,7 +5,7 @@ import tkinter
 
 root = Tk()
 
-root.geometry('600x600')
+root.geometry('1000x1000')
 
 database_name = '/home/omar/git_workspace/code_for_Kids/classWork/my_database.db'      # write your location with database name
 
@@ -110,17 +110,18 @@ def update():
 
 
 def show_all():
-    tree= ttk.Treeview(root, column=("column1", "column2", "column3"), show='headings')
-    tree.heading("#1", text="BOOK NAME")
-    tree.heading("#2", text="AUTHOR NAME")
-    tree.heading("#3", text="DATE OF PUBLICATION")
-    tree.grid(row=0, column=7, pady=20)
+    tree = ttk.Treeview(root, column=("column1","column2","column3"), show="headings")
+    tree.heading("#1",text="Book Name")
+    tree.heading("#2",text="Author Name")
+    tree.heading("#3",text="Publication Date")
+    tree.grid(row=0, column=5, pady=5)
 
     cur.execute('SELECT * FROM book')
     rows = cur.fetchall()
-    for row in rows:
-        print(row)
-        tree.insert("",tkinter.END, values=row)
+
+    for i in rows:
+        tree.insert("",tkinter.END, values=i)
+
 # text 1 where user will write the book name, author name and description
 txt1 = Text(root, height=5, width=25, font='arial')
 txt1.grid(row=0, column=0, padx=10, pady=10)
