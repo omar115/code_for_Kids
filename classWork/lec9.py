@@ -84,6 +84,7 @@ def delete():
                             # and can show in terminal using print function
 
 
+# function for update the existing entry of the database
 def update():
     input_text = txt3.get('1.0','end')
     input_text = input_text.strip()
@@ -109,6 +110,8 @@ def update():
                             # and can show in terminal using print function
 
 
+# treeview: in the tree structure you will fetch all the data from the database and show it in tkinter interface.
+
 def show_all():
     tree = ttk.Treeview(root, column=("column1","column2","column3"), show="headings")
     tree.heading("#1",text="Book Name")
@@ -126,26 +129,26 @@ def show_all():
 txt1 = Text(root, height=5, width=25, font='arial')
 txt1.grid(row=0, column=0, padx=10, pady=10)
 
-# button to insert data into the database
+# button 1 to insert data into the database
 btn1 = Button(root, text='Add the Book', bd=5, command=add)
 btn1.grid(row=1, column=0, padx=10, pady=10)
 
-# text 1 where user will write the book name, author name and description
+# text 2 where user will write the book name, author name and description
 txt2 = Text(root, height=5, width=25, font='arial')
 txt2.grid(row=2, column=0, padx=10, pady=10)
 
-# button to insert data into the database
+# button 2 for delete
 btn2 = Button(root, text='Delete the Book', bd=5, command=delete)
 btn2.grid(row=3, column=0, padx=10, pady=10)
 
 txt3 = Text(root, height=5, width=25, font='arial')
 txt3.grid(row=4, column=0, padx=10, pady=10)
 
-# button to insert data into the database
+# button 3 for update the book
 btn3 = Button(root, text='Update the Book', bd=5, command=update)
 btn3.grid(row=5, column=0, padx=10, pady=10)
 
-
+# button 4 to show the database
 btn4 = Button(root, text='Show Book List', bd=5, command=show_all)
 btn4.grid(row=6, column=0, padx=20, pady=20)
 
