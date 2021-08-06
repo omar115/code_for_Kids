@@ -7,7 +7,7 @@ root = Tk()
 
 root.geometry('1000x1000')
 
-database_name = '/home/omar/git_workspace/code_for_Kids/classWork/my_database.db'      # write your location with database name
+database_name = r'C:\Users\Ferntech\Desktop\Omar\code_for_Kids\classWork\my_database.db'      # write your location with database name
 
 c = sqlite3.connect(database_name)      # connect with the database
 
