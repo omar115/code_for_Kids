@@ -9,8 +9,8 @@ root.geometry('1100x1000')
 
 root.title('Library DB')
 
-libdb = r'C:\Users\asuer\Documents\DbPython\libdb.db'  
-# libdb = r'C:\Users\Ferntech\Desktop\git_workspace\code_for_Kids\classWork\leenat\libdb.db'
+# libdb = r'C:\Users\asuer\Documents\DbPython\libdb.db'  
+libdb = r'C:\Users\Ferntech\Desktop\git_workspace\code_for_Kids\classWork\leenat\libdb.db'
 
 c = sqlite3.connect(libdb)     
 
@@ -62,7 +62,6 @@ def delete():
     c.commit()
     print(cur.fetchall())   
 
-
 def update():
     input_text = txt3.get('1.0','end')
     input_text = input_text.strip()
@@ -91,25 +90,24 @@ def show_all():
         tree.insert("",tkinter.END, values=i)
 
 txt1 = Text(root, height=5, width=25, font='arial', bg = "floralwhite", fg = 'darkgrey')
-txt1.grid(row=0, column=0, padx=10, pady=10)
+txt1.grid(row=0, column=0, padx=5, pady=5)
 
 btn1 = Button(root, text='Add the Book', bd=5, fg = "darkred", bg = "goldenrod", command=add)
-btn1.grid(row=1, column=0, padx=10, pady=10)
+btn1.grid(row=1, column=0, padx=5, pady=5)
 
 txt2 = Text(root, height=5, width=25, font='arial', bg = "floralwhite", fg = 'darkgrey')
-txt2.grid(row=2, column=0, padx=10, pady=10)
+txt2.grid(row=2, column=0, padx=5, pady=5)
 
 btn2 = Button(root, text='Delete the Book', bd=5, fg = "darkred", bg = "goldenrod", command=delete)
-btn2.grid(row=3, column=0, padx=10, pady=10)
+btn2.grid(row=3, column=0, padx=5, pady=5)
 
 txt3 = Text(root, height=5, width=25, font='arial', bg = 'floralwhite', fg = 'darkgrey')
-txt3.grid(row=4, column=0, padx=10, pady=10)
+txt3.grid(row=4, column=0, padx=5, pady=5)
 
 btn3 = Button(root, text='Update the Book', bd=5, fg = "darkred", bg = "goldenrod", command=update)
-btn3.grid(row=5, column=0, padx=10, pady=10)
+btn3.grid(row=5, column=0, padx=5, pady=5)
 
 btn4 = Button(root, text='Show Book List', bd=5, fg = "darkred", bg = "goldenrod", command=show_all)
-btn4.grid(row=6, column=0, padx=20, pady=20)
-
+btn4.grid(row=6, column=0, padx=5, pady=5)
 
 root.mainloop()
