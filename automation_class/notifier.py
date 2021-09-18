@@ -20,6 +20,6 @@ while i <= 10:
         timeout = 15
     )
     
-    time.sleep(10)
+    time.sleep(2000)
 
     i = i + 1
