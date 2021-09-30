@@ -1,5 +1,9 @@
 import math
 
+
+
+
+
 x = input().split(" ")
 
 a = int(x[0])
