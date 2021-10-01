@@ -5,6 +5,7 @@ b = input().split(' ')
 
 x1 = float(a[0])
 y1 = float(a[1])
+
 x2 = float(b[0])
 y2 = float(b[1])
 
