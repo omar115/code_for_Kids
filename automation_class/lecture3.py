@@ -1,3 +1,14 @@
+'''
+note: pypdf2 is a pdf manipulation library,
+we will read, extract text, count pages etc. different
+works can be done using pypdf2. this is a simple project
+where we will do the followings:
+1. extract text from a pdf
+2. pass the text into pyttsx3
+3. read it
+that is how we will make our own audiobook.
+'''
+
 import PyPDF2
 import pyttsx3
 from pyttsx3 import engine
