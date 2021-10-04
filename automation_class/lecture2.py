@@ -1,7 +1,15 @@
+'''
+note: pyttsx3 is a python text to speech library
+where we convert a text to speech.
+'''
+
 import pyttsx3
 
-speaker = pyttsx3.init()    # initialization
+engine = pyttsx3.init()
 
-speaker.say('Look Mama I can talk!!')
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)
 
-speaker.runAndWait()
+engine.say("Hello Mama! I can talk!!")
+
+engine.runAndWait()

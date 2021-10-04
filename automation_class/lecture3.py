@@ -1,5 +1,19 @@
+'''
+note: pypdf2 is a pdf manipulation library,
+we will read, extract text, count pages etc. different
+works can be done using pypdf2. this is a simple project
+where we will do the followings:
+1. extract text from a pdf
+2. pass the text into pyttsx3
+3. read it
+that is how we will make our own audiobook.
+'''
+
 import PyPDF2
 import pyttsx3
+from pyttsx3 import engine
+
+# step 1: to read the pdf
 
 
 
@@ -9,14 +23,19 @@ path = open(r'/Users/omar/Desktop/omar_workspace/code_for_Kids/automation_class/
 
 pdfreader = PyPDF2.PdfFileReader(path)
 
-from_page = pdfreader.getPage(1)
+# step 2: select a page and extract string from that page
 
-text = from_page.extractText()
+page = pdfreader.getPage(1)
 
+text = page.extractText()
 
-speak = pyttsx3.init()
+print(text)
 
-speak.say(text)
+# step 3: use python text to speech library
+# and read the text, convert to audio speech
 
-speak.runAndWait()
+engine = pyttsx3.init()
 
+engine.say(text)
+
+engine.runAndWait()
