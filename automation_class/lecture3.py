@@ -1,6 +1,10 @@
 import PyPDF2
 import pyttsx3
 
+
+
+
+
 path = open(r'/Users/omar/Desktop/omar_workspace/code_for_Kids/automation_class/oldmansea.pdf', 'rb')
 
 pdfreader = PyPDF2.PdfFileReader(path)
