@@ -9,6 +9,11 @@ where we will do the followings:
 that is how we will make our own audiobook.
 '''
 
+
+
+
+
+
 import PyPDF2
 import pyttsx3
 from pyttsx3 import engine
@@ -37,5 +42,7 @@ print(text)
 engine = pyttsx3.init()
 
 engine.say(text)
+
+
 
 engine.runAndWait()
