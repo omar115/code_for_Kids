@@ -9,11 +9,20 @@ where we will do the followings:
 that is how we will make our own audiobook.
 '''
 
+
+
+
+
+
 import PyPDF2
 import pyttsx3
 from pyttsx3 import engine
 
 # step 1: to read the pdf
+
+
+
+
 
 path = open(r'/Users/omar/Desktop/omar_workspace/code_for_Kids/automation_class/oldmansea.pdf', 'rb')
 
@@ -33,5 +42,7 @@ print(text)
 engine = pyttsx3.init()
 
 engine.say(text)
+
+
 
 engine.runAndWait()
