@@ -1,0 +1,9 @@
+#Short questions for ".txt"
+
+CRUD operations:
+R represents reading the data, that is retrieving it from the db and then printing it allowing the user to see the data of a particular field/record.
+U represents updating the data, that is changing it from the db and then saving it as a new data that will be now applicable instead of the old data, here the field and record will be same since only a particular DATA has been updated.
+
+For R, suppose this is a library db, and the user wants to see all the books written by a particular author, based on the criteria and query the user provides, the data will be retrieved and printed for the user to see.
+For U, suppose this is a library db, and the admin wants to update some books that have been borrowed just now, the admin will go to the db, and update the availability field for those books, update them to "unavailable - borrowed", thus being able to change the data.
+
